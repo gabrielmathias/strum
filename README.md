@@ -1,2 +1,2 @@
 # strum
-A really simple tool to our strum managment
+A really simple tool to our scrum managment
