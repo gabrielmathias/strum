@@ -1,0 +1,11 @@
+version: '2'
+services:
+    strum-postgresql:
+        image: postgres:9.5.4
+        # volumes:
+        #     - ~/volumes/jhipster/strum/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=strum
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
