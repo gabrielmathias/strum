@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "created_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "acceptance"
+        },
+        {
+            "relationshipName": "status_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "acceptance"
+        },
+        {
+            "relationshipName": "story",
+            "otherEntityName": "story",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "criteria",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "AcceptanceStatus",
+            "fieldValues": "ACCEPTED,REJECTED,DEFINED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170329145139",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "acceptance",
+    "pagination": "pager"
+}

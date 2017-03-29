@@ -1,0 +1,116 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySprintLabel" data-translate="strumApp.sprint.home.createOrEditLabel">Create or edit a Sprint</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.sprint.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.sprint.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.sprint.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.sprint.name"
+                    required/>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.sprint.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.sprint.description"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.sprint.start_at" for="field_start_at">Start At</label>
+                <div class="input-group">
+                    <input id="field_start_at" type="text" class="form-control" name="start_at" datetime-picker="{{dateformat}}" ng-model="vm.sprint.start_at" is-open="vm.datePickerOpenStatus.start_at"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('start_at')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.sprint.end_at" for="field_end_at">End At</label>
+                <div class="input-group">
+                    <input id="field_end_at" type="text" class="form-control" name="end_at" datetime-picker="{{dateformat}}" ng-model="vm.sprint.end_at" is-open="vm.datePickerOpenStatus.end_at"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('end_at')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.sprint.days_planned" for="field_days_planned">Days Planned</label>
+            <input type="number" class="form-control" name="days_planned" id="field_days_planned"
+                    ng-model="vm.sprint.days_planned"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.sprint.days_used" for="field_days_used">Days Used</label>
+            <input type="number" class="form-control" name="days_used" id="field_days_used"
+                    ng-model="vm.sprint.days_used"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.sprint.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.sprint.status" id="field_status" required>
+                <option value="READY" data-translate="strumApp.SprintStatus.READY">READY</option>
+                <option value="RUNNING" data-translate="strumApp.SprintStatus.RUNNING">RUNNING</option>
+                <option value="FINISHED" data-translate="strumApp.SprintStatus.FINISHED">FINISHED</option>
+                <option value="CANCELED" data-translate="strumApp.SprintStatus.CANCELED">CANCELED</option>
+                <option value="PLANNING" data-translate="strumApp.SprintStatus.PLANNING">PLANNING</option>
+            </select>
+            <div ng-show="editForm.status.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.status.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="strumApp.sprint.strum" for="field_strum">Strum</label>
+            <select class="form-control" id="field_strum" name="strum" ng-model="vm.sprint.strumId" ng-options="strum.id as strum.name for strum in vm.strums"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.strum.$invalid">
+            <p class="help-block"
+                ng-show="editForm.strum.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.sprint.created_by" for="field_created_by">Created By</label>
+            <select class="form-control" id="field_created_by" name="created_by" ng-model="vm.sprint.created_byId" ng-options="user.id as user.login for user in vm.users"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.created_by.$invalid">
+            <p class="help-block"
+                ng-show="editForm.created_by.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

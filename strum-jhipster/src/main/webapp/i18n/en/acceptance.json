@@ -1,0 +1,27 @@
+{
+    "strumApp": {
+        "acceptance" : {
+            "home": {
+                "title": "Acceptances",
+                "createLabel": "Create a new Acceptance",
+                "createOrEditLabel": "Create or edit a Acceptance",
+                "search": "Search for Acceptance"
+            },
+            "created": "A new Acceptance is created with identifier {{ param }}",
+            "updated": "A Acceptance is updated with identifier {{ param }}",
+            "deleted": "A Acceptance is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Acceptance {{ id }}?"
+            },
+            "detail": {
+                "title": "Acceptance"
+            },
+            "criteria": "Criteria",
+            "status": "Status",
+            "message": "Message",
+            "created_by": "Created By",
+            "status_by": "Status By",
+            "story": "Story"
+        }
+    }
+}

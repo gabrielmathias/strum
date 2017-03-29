@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="strumApp.acceptance.detail.title">Acceptance</span> {{vm.acceptance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="strumApp.acceptance.criteria">Criteria</span></dt>
+        <dd>
+            <span>{{vm.acceptance.criteria}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.acceptance.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'strumApp.AcceptanceStatus.' + vm.acceptance.status}}">{{vm.acceptance.status}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.acceptance.message">Message</span></dt>
+        <dd>
+            <span>{{vm.acceptance.message}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.acceptance.created_by">Created By</span></dt>
+        <dd>
+            {{vm.acceptance.created_byLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.acceptance.status_by">Status By</span></dt>
+        <dd>
+            {{vm.acceptance.status_byLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.acceptance.story">Story</span></dt>
+        <dd>
+            <a ui-sref="story-detail({id:vm.acceptance.storyId})">{{vm.acceptance.storyName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="acceptance-detail.edit({id:vm.acceptance.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

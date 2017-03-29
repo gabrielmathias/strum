@@ -1,0 +1,71 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "created_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "story"
+        },
+        {
+            "relationshipName": "status_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "story"
+        },
+        {
+            "relationshipName": "sprint",
+            "otherEntityName": "sprint",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "points",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "origin",
+            "fieldType": "StoryOrigin",
+            "fieldValues": "SPRINT,BUG,APPEND,UNEXPECTED,OTHER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "StoryStatus",
+            "fieldValues": "PLANNING,READY,RUNNING,ARCHIVE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170329145740",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "story",
+    "pagination": "pager"
+}

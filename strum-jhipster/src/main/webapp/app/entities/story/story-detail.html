@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="strumApp.story.detail.title">Story</span> {{vm.story.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="strumApp.story.name">Name</span></dt>
+        <dd>
+            <span>{{vm.story.name}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.story.points">Points</span></dt>
+        <dd>
+            <span>{{vm.story.points}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.story.description">Description</span></dt>
+        <dd>
+            <span>{{vm.story.description}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.story.origin">Origin</span></dt>
+        <dd>
+            <span data-translate="{{'strumApp.StoryOrigin.' + vm.story.origin}}">{{vm.story.origin}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.story.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'strumApp.StoryStatus.' + vm.story.status}}">{{vm.story.status}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.story.created_by">Created By</span></dt>
+        <dd>
+            {{vm.story.created_byLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.story.status_by">Status By</span></dt>
+        <dd>
+            {{vm.story.status_byLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.story.sprint">Sprint</span></dt>
+        <dd>
+            <a ui-sref="sprint-detail({id:vm.story.sprintId})">{{vm.story.sprintName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="story-detail.edit({id:vm.story.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

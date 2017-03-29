@@ -1,0 +1,29 @@
+{
+    "strumApp": {
+        "story" : {
+            "home": {
+                "title": "Stories",
+                "createLabel": "Criar novo Story",
+                "createOrEditLabel": "Criar ou editar Story",
+                "search": "Pesquisar por Story"
+            },
+            "created": "Um novo Story é criado com o identificador {{ param }}",
+            "updated": "Um Story é atualizado com o identificador {{ param }}",
+            "deleted": "Um Story é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Story {{ id }}?"
+            },
+            "detail": {
+                "title": "Story"
+            },
+            "name": "Name",
+            "points": "Points",
+            "description": "Description",
+            "origin": "Origin",
+            "status": "Status",
+            "created_by": "Created By",
+            "status_by": "Status By",
+            "sprint": "Sprint"
+        }
+    }
+}

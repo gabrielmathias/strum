@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "strum",
+            "otherEntityName": "strum",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "created_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "sprint"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "start_at",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "end_at",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "days_planned",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "days_used",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "SprintStatus",
+            "fieldValues": "READY,RUNNING,FINISHED,CANCELED,PLANNING",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170329144636",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "sprint",
+    "pagination": "pager"
+}

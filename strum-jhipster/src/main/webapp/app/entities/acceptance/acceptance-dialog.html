@@ -1,0 +1,88 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAcceptanceLabel" data-translate="strumApp.acceptance.home.createOrEditLabel">Create or edit a Acceptance</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.acceptance.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.acceptance.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.acceptance.criteria" for="field_criteria">Criteria</label>
+            <input type="text" class="form-control" name="criteria" id="field_criteria"
+                    ng-model="vm.acceptance.criteria"
+                    required/>
+            <div ng-show="editForm.criteria.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.criteria.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.acceptance.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.acceptance.status" id="field_status" required>
+                <option value="ACCEPTED" data-translate="strumApp.AcceptanceStatus.ACCEPTED">ACCEPTED</option>
+                <option value="REJECTED" data-translate="strumApp.AcceptanceStatus.REJECTED">REJECTED</option>
+                <option value="DEFINED" data-translate="strumApp.AcceptanceStatus.DEFINED">DEFINED</option>
+            </select>
+            <div ng-show="editForm.status.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.status.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.acceptance.message" for="field_message">Message</label>
+            <input type="text" class="form-control" name="message" id="field_message"
+                    ng-model="vm.acceptance.message"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="strumApp.acceptance.created_by" for="field_created_by">Created By</label>
+            <select class="form-control" id="field_created_by" name="created_by" ng-model="vm.acceptance.created_byId" ng-options="user.id as user.login for user in vm.users"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.created_by.$invalid">
+            <p class="help-block"
+                ng-show="editForm.created_by.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.acceptance.status_by" for="field_status_by">Status By</label>
+            <select class="form-control" id="field_status_by" name="status_by" ng-model="vm.acceptance.status_byId" ng-options="user.id as user.login for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.acceptance.story" for="field_story">Story</label>
+            <select class="form-control" id="field_story" name="story" ng-model="vm.acceptance.storyId" ng-options="story.id as story.name for story in vm.stories"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.story.$invalid">
+            <p class="help-block"
+                ng-show="editForm.story.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

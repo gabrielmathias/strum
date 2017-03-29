@@ -1,0 +1,14 @@
+{
+    "strumApp": {
+        "TaskStatus" : {
+            "null": "",
+            "WAITING": "WAITING",
+            "DOING": "DOING",
+            "TESTING": "TESTING",
+            "HALTED": "HALTED",
+            "FIXING": "FIXING",
+            "STAGING": "STAGING",
+            "DONE": "DONE"
+        }
+    }
+}

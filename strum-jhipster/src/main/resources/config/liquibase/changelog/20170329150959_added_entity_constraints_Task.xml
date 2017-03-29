@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Task.
+    -->
+    <changeSet id="20170329150959-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="created_by_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_created_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_by_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_status_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="done_by_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_done_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="tested_by_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_tested_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="story_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_story_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="story"/>
+
+    </changeSet>
+</databaseChangeLog>

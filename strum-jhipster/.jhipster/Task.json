@@ -1,0 +1,79 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "createdBy",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "task"
+        },
+        {
+            "relationshipName": "statusBy",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "task"
+        },
+        {
+            "relationshipName": "doneBy",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "task"
+        },
+        {
+            "relationshipName": "testedBy",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "task"
+        },
+        {
+            "relationshipName": "story",
+            "otherEntityName": "story",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statusMessage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "TaskStatus",
+            "fieldValues": "WAITING,DOING,TESTING,HALTED,FIXING,STAGING,DONE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170329150959",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "task",
+    "pagination": "pager"
+}

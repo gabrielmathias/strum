@@ -1,0 +1,30 @@
+{
+    "strumApp": {
+        "sprint" : {
+            "home": {
+                "title": "Sprints",
+                "createLabel": "Criar novo Sprint",
+                "createOrEditLabel": "Criar ou editar Sprint",
+                "search": "Pesquisar por Sprint"
+            },
+            "created": "Um novo Sprint é criado com o identificador {{ param }}",
+            "updated": "Um Sprint é atualizado com o identificador {{ param }}",
+            "deleted": "Um Sprint é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Sprint {{ id }}?"
+            },
+            "detail": {
+                "title": "Sprint"
+            },
+            "name": "Name",
+            "description": "Description",
+            "start_at": "Start At",
+            "end_at": "End At",
+            "days_planned": "Days Planned",
+            "days_used": "Days Used",
+            "status": "Status",
+            "strum": "Strum",
+            "created_by": "Created By"
+        }
+    }
+}

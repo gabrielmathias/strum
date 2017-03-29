@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="strumApp.strum.detail.title">Strum</span> {{vm.strum.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="strumApp.strum.name">Name</span></dt>
+        <dd>
+            <span>{{vm.strum.name}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.strum.description">Description</span></dt>
+        <dd>
+            <span>{{vm.strum.description}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.strum.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'strumApp.StrumStatus.' + vm.strum.status}}">{{vm.strum.status}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.strum.owner">Owner</span></dt>
+        <dd>
+            {{vm.strum.ownerLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="strum-detail.edit({id:vm.strum.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

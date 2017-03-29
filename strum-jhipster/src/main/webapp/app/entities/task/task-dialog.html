@@ -1,0 +1,110 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTaskLabel" data-translate="strumApp.task.home.createOrEditLabel">Create or edit a Task</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.task.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.task.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.task.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.task.name"
+                    required/>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.task.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.task.description"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.task.statusMessage" for="field_statusMessage">Status Message</label>
+            <input type="text" class="form-control" name="statusMessage" id="field_statusMessage"
+                    ng-model="vm.task.statusMessage"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.task.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.task.status" id="field_status" required>
+                <option value="WAITING" data-translate="strumApp.TaskStatus.WAITING">WAITING</option>
+                <option value="DOING" data-translate="strumApp.TaskStatus.DOING">DOING</option>
+                <option value="TESTING" data-translate="strumApp.TaskStatus.TESTING">TESTING</option>
+                <option value="HALTED" data-translate="strumApp.TaskStatus.HALTED">HALTED</option>
+                <option value="FIXING" data-translate="strumApp.TaskStatus.FIXING">FIXING</option>
+                <option value="STAGING" data-translate="strumApp.TaskStatus.STAGING">STAGING</option>
+                <option value="DONE" data-translate="strumApp.TaskStatus.DONE">DONE</option>
+            </select>
+            <div ng-show="editForm.status.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.status.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="strumApp.task.createdBy" for="field_createdBy">Created By</label>
+            <select class="form-control" id="field_createdBy" name="createdBy" ng-model="vm.task.createdById" ng-options="user.id as user.login for user in vm.users"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.createdBy.$invalid">
+            <p class="help-block"
+                ng-show="editForm.createdBy.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.task.statusBy" for="field_statusBy">Status By</label>
+            <select class="form-control" id="field_statusBy" name="statusBy" ng-model="vm.task.statusById" ng-options="user.id as user.login for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.task.doneBy" for="field_doneBy">Done By</label>
+            <select class="form-control" id="field_doneBy" name="doneBy" ng-model="vm.task.doneById" ng-options="user.id as user.login for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.task.testedBy" for="field_testedBy">Tested By</label>
+            <select class="form-control" id="field_testedBy" name="testedBy" ng-model="vm.task.testedById" ng-options="user.id as user.login for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.task.story" for="field_story">Story</label>
+            <select class="form-control" id="field_story" name="story" ng-model="vm.task.storyId" ng-options="story.id as story.name for story in vm.stories"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.story.$invalid">
+            <p class="help-block"
+                ng-show="editForm.story.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

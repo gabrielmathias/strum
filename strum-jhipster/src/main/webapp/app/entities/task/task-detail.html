@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="strumApp.task.detail.title">Task</span> {{vm.task.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="strumApp.task.name">Name</span></dt>
+        <dd>
+            <span>{{vm.task.name}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.task.description">Description</span></dt>
+        <dd>
+            <span>{{vm.task.description}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.task.statusMessage">Status Message</span></dt>
+        <dd>
+            <span>{{vm.task.statusMessage}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.task.status">Status</span></dt>
+        <dd>
+            <span data-translate="{{'strumApp.TaskStatus.' + vm.task.status}}">{{vm.task.status}}</span>
+        </dd>
+        <dt><span data-translate="strumApp.task.createdBy">Created By</span></dt>
+        <dd>
+            {{vm.task.createdByLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.task.statusBy">Status By</span></dt>
+        <dd>
+            {{vm.task.statusByLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.task.doneBy">Done By</span></dt>
+        <dd>
+            {{vm.task.doneByLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.task.testedBy">Tested By</span></dt>
+        <dd>
+            {{vm.task.testedByLogin}}
+        </dd>
+        <dt><span data-translate="strumApp.task.story">Story</span></dt>
+        <dd>
+            <a ui-sref="story-detail({id:vm.task.storyId})">{{vm.task.storyName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="task-detail.edit({id:vm.task.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,32 @@
+<div ng-cloak>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 data-translate="kanban.title">This is the kanban</h3>
+
+            <div class="table-responsive">
+                <table class="jh-table table table-striped table-bordered">
+                    <thead>
+                        <th> ? </th>
+                        <th ng-repeat="column in vm.columns" class="text-center">
+                            {{column}}
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >
+                                <div class="col-xs-6 col-md-3" ng-repeat="task in vm.tasks">
+                                    <a href="#" class="thumbnail">
+                                        {{task.name}}
+                                    </a>
+                                </div>
+                            </td>
+                            <td ng-repeat="column in vm.columns" class="text-center">
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

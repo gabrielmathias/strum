@@ -1,0 +1,9 @@
+{
+    "strumApp": {
+        "StrumStatus" : {
+            "null": "",
+            "READY": "READY",
+            "ARCHIVED": "ARCHIVED"
+        }
+    }
+}

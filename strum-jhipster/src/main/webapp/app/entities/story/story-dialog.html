@@ -1,0 +1,111 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myStoryLabel" data-translate="strumApp.story.home.createOrEditLabel">Create or edit a Story</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.story.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.story.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.story.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.story.name"
+                    required/>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.story.points" for="field_points">Points</label>
+            <input type="number" class="form-control" name="points" id="field_points"
+                    ng-model="vm.story.points"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.story.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.story.description"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.story.origin" for="field_origin">Origin</label>
+            <select class="form-control" name="origin" ng-model="vm.story.origin" id="field_origin" required>
+                <option value="SPRINT" data-translate="strumApp.StoryOrigin.SPRINT">SPRINT</option>
+                <option value="BUG" data-translate="strumApp.StoryOrigin.BUG">BUG</option>
+                <option value="APPEND" data-translate="strumApp.StoryOrigin.APPEND">APPEND</option>
+                <option value="UNEXPECTED" data-translate="strumApp.StoryOrigin.UNEXPECTED">UNEXPECTED</option>
+                <option value="OTHER" data-translate="strumApp.StoryOrigin.OTHER">OTHER</option>
+            </select>
+            <div ng-show="editForm.origin.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.origin.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="strumApp.story.status" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.story.status" id="field_status" required>
+                <option value="PLANNING" data-translate="strumApp.StoryStatus.PLANNING">PLANNING</option>
+                <option value="READY" data-translate="strumApp.StoryStatus.READY">READY</option>
+                <option value="RUNNING" data-translate="strumApp.StoryStatus.RUNNING">RUNNING</option>
+                <option value="ARCHIVE" data-translate="strumApp.StoryStatus.ARCHIVE">ARCHIVE</option>
+            </select>
+            <div ng-show="editForm.status.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.status.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="strumApp.story.created_by" for="field_created_by">Created By</label>
+            <select class="form-control" id="field_created_by" name="created_by" ng-model="vm.story.created_byId" ng-options="user.id as user.login for user in vm.users"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.created_by.$invalid">
+            <p class="help-block"
+                ng-show="editForm.created_by.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.story.status_by" for="field_status_by">Status By</label>
+            <select class="form-control" id="field_status_by" name="status_by" ng-model="vm.story.status_byId" ng-options="user.id as user.login for user in vm.users"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="strumApp.story.sprint" for="field_sprint">Sprint</label>
+            <select class="form-control" id="field_sprint" name="sprint" ng-model="vm.story.sprintId" ng-options="sprint.id as sprint.name for sprint in vm.sprints"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.sprint.$invalid">
+            <p class="help-block"
+                ng-show="editForm.sprint.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

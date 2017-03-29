@@ -1,0 +1,11 @@
+{
+    "strumApp": {
+        "StoryStatus" : {
+            "null": "",
+            "PLANNING": "PLANNING",
+            "READY": "READY",
+            "RUNNING": "RUNNING",
+            "ARCHIVE": "ARCHIVE"
+        }
+    }
+}

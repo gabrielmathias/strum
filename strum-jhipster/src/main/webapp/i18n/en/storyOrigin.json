@@ -1,0 +1,12 @@
+{
+    "strumApp": {
+        "StoryOrigin" : {
+            "null": "",
+            "SPRINT": "SPRINT",
+            "BUG": "BUG",
+            "APPEND": "APPEND",
+            "UNEXPECTED": "UNEXPECTED",
+            "OTHER": "OTHER"
+        }
+    }
+}

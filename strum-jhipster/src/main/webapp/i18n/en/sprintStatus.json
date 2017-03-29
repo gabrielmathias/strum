@@ -1,0 +1,12 @@
+{
+    "strumApp": {
+        "SprintStatus" : {
+            "null": "",
+            "READY": "READY",
+            "RUNNING": "RUNNING",
+            "FINISHED": "FINISHED",
+            "CANCELED": "CANCELED",
+            "PLANNING": "PLANNING"
+        }
+    }
+}

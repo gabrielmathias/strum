@@ -1,0 +1,30 @@
+{
+    "strumApp": {
+        "task" : {
+            "home": {
+                "title": "Tasks",
+                "createLabel": "Criar novo Task",
+                "createOrEditLabel": "Criar ou editar Task",
+                "search": "Pesquisar por Task"
+            },
+            "created": "Um novo Task é criado com o identificador {{ param }}",
+            "updated": "Um Task é atualizado com o identificador {{ param }}",
+            "deleted": "Um Task é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Task {{ id }}?"
+            },
+            "detail": {
+                "title": "Task"
+            },
+            "name": "Name",
+            "description": "Description",
+            "statusMessage": "Status Message",
+            "status": "Status",
+            "createdBy": "Created By",
+            "statusBy": "Status By",
+            "doneBy": "Done By",
+            "testedBy": "Tested By",
+            "story": "Story"
+        }
+    }
+}

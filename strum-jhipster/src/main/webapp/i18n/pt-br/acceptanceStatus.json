@@ -1,0 +1,10 @@
+{
+    "strumApp": {
+        "AcceptanceStatus" : {
+            "null": "",
+            "ACCEPTED": "ACCEPTED",
+            "REJECTED": "REJECTED",
+            "DEFINED": "DEFINED"
+        }
+    }
+}

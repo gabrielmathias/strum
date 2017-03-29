@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Story.
+    -->
+    <changeSet id="20170329145740-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="created_by_id"
+                                 baseTableName="story"
+                                 constraintName="fk_story_created_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_by_id"
+                                 baseTableName="story"
+                                 constraintName="fk_story_status_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="sprint_id"
+                                 baseTableName="story"
+                                 constraintName="fk_story_sprint_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sprint"/>
+
+    </changeSet>
+</databaseChangeLog>

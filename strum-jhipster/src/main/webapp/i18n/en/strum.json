@@ -1,0 +1,25 @@
+{
+    "strumApp": {
+        "strum" : {
+            "home": {
+                "title": "Strums",
+                "createLabel": "Create a new Strum",
+                "createOrEditLabel": "Create or edit a Strum",
+                "search": "Search for Strum"
+            },
+            "created": "A new Strum is created with identifier {{ param }}",
+            "updated": "A Strum is updated with identifier {{ param }}",
+            "deleted": "A Strum is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Strum {{ id }}?"
+            },
+            "detail": {
+                "title": "Strum"
+            },
+            "name": "Name",
+            "description": "Description",
+            "status": "Status",
+            "owner": "Owner"
+        }
+    }
+}
