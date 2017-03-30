@@ -9,7 +9,7 @@
 
     function stateConfig($stateProvider) {
         $stateProvider.state('kanban', {
-            parent: 'app',
+            parent: 'home',
             url: '/kanban',
             data: {
                 authorities: []

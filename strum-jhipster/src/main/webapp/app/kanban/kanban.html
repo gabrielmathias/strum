@@ -1,3 +1,8 @@
+<script type="text/ng-template" id="nodes_renderer.html">
+    <div ui-tree-handle>
+        <h2>{{task.name}}</h2>
+    </div>
+</script>
 <div ng-cloak>
     <div class="row">
         <div class="col-md-12">
@@ -6,22 +11,16 @@
             <div class="table-responsive">
                 <table class="jh-table table table-striped table-bordered">
                     <thead>
-                        <th> ? </th>
                         <th ng-repeat="column in vm.columns" class="text-center">
-                            {{column}}
+                            {{column.name}}
                         </th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td >
-                                <div class="col-xs-6 col-md-3" ng-repeat="task in vm.tasks">
-                                    <a href="#" class="thumbnail">
-                                        {{task.name}}
-                                    </a>
-                                </div>
-                            </td>
+                        <tr ui-tree data-drag-enabled="tree.enabled">
                             <td ng-repeat="column in vm.columns" class="text-center">
-
+                                <ol ui-tree-nodes="" ng-model="vm.tasks[column.name]">
+                                    <li ui-tree-node  class="col-xs-6 col-md-3" ng-repeat="task in vm.tasks[column.name]" ng-include="'nodes_renderer.html'" ></li>
+                                </ol>
                             </td>
                         </tr>
                     </tbody>
